@@ -14,6 +14,12 @@ function App() {
     setMovies([...movies, movie]);
   }
 
+  const filterMovies = (e) => {
+    const searchText = e.target.value.toLowerCase();
+    const filteredMovies = movies.filter(movie => movie.movie.toLowerCase().includes(searchText));
+    setMovies(filteredMovies);
+  }
+
   return (
     <div>
       <h8k-navbar header={ title } />
@@ -22,7 +28,7 @@ function App() {
           <Movieform addMovieToList={addMovieToList}/>
         </div>
         <div className='layout-column w-30'>
-          <Search />
+          <Search filterMovies={filterMovies}/>
           <Movieslist movies={movies}/> 
           <div data-testid='noResult'>
            {!movies && <h3 className='text-center'>No Results Found</h3>}
