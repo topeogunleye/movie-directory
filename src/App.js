@@ -25,7 +25,7 @@ function App() {
           <Search />
           <Movieslist movies={movies}/> 
           <div data-testid='noResult'>
-            <h3 className='text-center'>No Results Found</h3>
+           {!movies && <h3 className='text-center'>No Results Found</h3>}
           </div>
         </div>
 
